@@ -29,6 +29,16 @@ return {
 
     ["<tab>"] = "<cmd>bnext<cr>",
     ["<s-tab>"] = "<cmd>bprev<cr>",
+    ["<leader>c"] = false,
+    ["<leader>C"] = false,
+    ["<leader>x"] = {
+      function() require("astronvim.utils.buffer").close() end,
+      desc = "Close buffer",
+    },
+    ["<leader>X"] = {
+      function() require("astronvim.utils.buffer").close(nil, true) end,
+      desc = "Force close buffer",
+    },
 
     -- tables with the `name` key will be registered with which-key if it's installed
     -- this is useful for naming menus
