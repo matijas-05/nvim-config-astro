@@ -27,6 +27,9 @@ return {
       desc = "AstroNvim Changelog",
     },
 
+    ["<tab>"] = "<cmd>bnext<cr>",
+    ["<s-tab>"] = "<cmd>bprev<cr>",
+
     -- tables with the `name` key will be registered with which-key if it's installed
     -- this is useful for naming menus
     -- ["<leader>b"] = { name = "Buffers" },
