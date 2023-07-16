@@ -47,6 +47,9 @@ return {
       window = {
         width = 40,
       },
+      source_selector = {
+        winbar = false,
+      },
     },
   },
 }

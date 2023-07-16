@@ -25,4 +25,13 @@ return {
       vim.g.mkdp_page_title = "${name}"
     end,
   },
+  -- Override default theme options
+  {
+    "AstroNvim/astrotheme",
+    opts = {
+      style = {
+        italic_comments = false,
+      },
+    },
+  },
 }
