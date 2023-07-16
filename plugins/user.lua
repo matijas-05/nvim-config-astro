@@ -143,4 +143,24 @@ return {
       },
     },
   },
+  {
+    "petertriho/nvim-scrollbar",
+    event = "VeryLazy",
+    config = function()
+      local colors = require "astrotheme.colors"
+      require("scrollbar").setup {
+        handle = {
+          color = colors.bg_1,
+        },
+        marks = {
+          Search = { color = colors.orange_1 },
+          Error = { color = colors.red_1 },
+          Warn = { color = colors.yellow_1 },
+          Info = { color = colors.blue_1 },
+          Hint = { color = colors.green_1 },
+          Misc = { color = colors.purple_1 },
+        },
+      }
+    end,
+  },
 }
