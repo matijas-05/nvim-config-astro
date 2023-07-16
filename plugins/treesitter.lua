@@ -7,5 +7,6 @@ return {
       "bash",
       "comment",
     })
+    opts.auto_install = true
   end,
 }
