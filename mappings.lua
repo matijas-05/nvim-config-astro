@@ -8,7 +8,7 @@ return {
   n = {
     -- second key is the lefthand side of the map
     -- mappings seen under group name "Buffer"
-    -- ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
+    -- ["<leader>bn"] = { ":tabnew<cr>", desc = "New tab" },
     ["<leader>bD"] = {
       function()
         require("astronvim.utils.status").heirline.buffer_picker(
@@ -17,18 +17,17 @@ return {
       end,
       desc = "Pick to close",
     },
-
     ["<leader>pl"] = {
-      "<cmd>Lazy<cr>",
+      ":Lazy<cr>",
       desc = "Lazy plugin manager",
     },
     ["<leader>pc"] = {
-      "<cmd>AstroChangelog<cr>",
+      ":AstroChangelog<cr>",
       desc = "AstroNvim Changelog",
     },
 
-    ["<tab>"] = "<cmd>bnext<cr>",
-    ["<s-tab>"] = "<cmd>bprev<cr>",
+    ["<tab>"] = ":bnext<cr>",
+    ["<s-tab>"] = ":bprev<cr>",
     ["<leader>c"] = false,
     ["<leader>C"] = false,
     ["<leader>x"] = {
@@ -40,14 +39,16 @@ return {
       desc = "Force close buffer",
     },
 
+    ["<A-j>"] = ":m .+1<CR>==",
+    ["<A-k>"] = ":m .-2<CR>==",
     -- tables with the `name` key will be registered with which-key if it's installed
     -- this is useful for naming menus
     -- ["<leader>b"] = { name = "Buffers" },
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
   },
-  t = {
-    -- setting a mapping to false will disable it
-    -- ["<esc>"] = false,
+  v = {
+    ["<A-j>"] = "dp`[V`]",
+    ["<A-k>"] = "dkP`[V`]",
   },
 }
