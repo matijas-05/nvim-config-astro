@@ -69,6 +69,13 @@ return {
   -- augroups/autocommands and custom filetypes also this just pure lua so
   -- anything that doesn't fit in the normal config locations above can go here
   polish = function()
+    -- Reload file on change
+    vim.o.autoread = true
+    vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
+      command = "if mode() != 'c' | checktime | endif",
+      pattern = { "*" },
+    })
+
     -- Set up custom filetypes
     -- vim.filetype.add {
     --   extension = {
