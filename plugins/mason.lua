@@ -25,6 +25,9 @@ return {
         -- shell
         "shellcheck",
         "shfmt",
+        -- markdown
+        "marksman",
+        "markdownlint",
       })
     end,
   },

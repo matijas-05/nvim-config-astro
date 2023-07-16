@@ -16,6 +16,9 @@ return {
       -- shell
       lint.shellcheck,
       format.shfmt,
+      -- markdown
+      lint.markdownlint,
+      format.markdownlint,
     }
     return config
   end,
