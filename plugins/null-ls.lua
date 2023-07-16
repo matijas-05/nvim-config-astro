@@ -10,9 +10,12 @@ return {
     -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
     -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
     config.sources = {
-      -- Set a formatter
+      -- lua
       lint.selene,
       format.stylua,
+      -- shell
+      lint.shellcheck,
+      format.shfmt,
     }
     return config
   end,
