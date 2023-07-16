@@ -178,4 +178,18 @@ return {
     },
     config = function() require("mini.move").setup() end,
   },
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "debugloop/telescope-undo.nvim",
+    },
+    keys = {
+      { "<leader>fu", "<cmd>Telescope undo<cr>", desc = "Undo history" },
+    },
+    config = function()
+      require("telescope").setup {}
+      require("telescope").load_extension "undo"
+    end,
+  },
 }
