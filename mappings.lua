@@ -31,6 +31,8 @@ return {
 
     ["<leader>x"] = { name = " Error list" },
     ["<leader>fr"] = false,
+
+    ["<c-z>"] = "<nop>",
     -- tables with the `name` key will be registered with which-key if it's installed
     -- this is useful for naming menus
     -- ["<leader>b"] = { name = "Buffers" },
