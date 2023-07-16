@@ -58,6 +58,7 @@ return {
     keys = {
       { "<leader>xt", "<cmd>TodoTrouble<cr>", desc = "Toggle todo-comments list" },
     },
+    config = function() require("todo-comments").setup() end,
   },
   {
     "folke/flash.nvim",
