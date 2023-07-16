@@ -22,14 +22,6 @@ return {
     end,
   },
   {
-    "AstroNvim/astrotheme",
-    opts = {
-      style = {
-        italic_comments = false,
-      },
-    },
-  },
-  {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     keys = {
