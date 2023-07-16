@@ -76,7 +76,7 @@ return {
       { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
       {
         "S",
-        mode = { "n", "o", "x" },
+        mode = { "n", "o" },
         function() require("flash").treesitter() end,
         desc = "Flash Treesitter",
       },
@@ -94,5 +94,10 @@ return {
         desc = "Toggle Flash Search",
       },
     },
+  },
+  {
+    "github/copilot.vim",
+    event = "VeryLazy",
+    config = function() vim.g.copilot_assume_mapped = true end,
   },
 }
