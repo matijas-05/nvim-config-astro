@@ -204,4 +204,10 @@ return {
       width = 150,
     },
   },
+  {
+    "mg979/vim-visual-multi",
+    keys = {
+      "<c-n>",
+    },
+  },
 }
