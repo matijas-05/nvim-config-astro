@@ -163,4 +163,19 @@ return {
       }
     end,
   },
+  {
+    "echasnovski/mini.move",
+    version = "*",
+    keys = {
+      { "<M-h>", mode = "n" },
+      { "<M-j>", mode = "n" },
+      { "<M-k>", mode = "n" },
+      { "<M-l>", mode = "n" },
+      { "<M-h>", mode = "v" },
+      { "<M-j>", mode = "v" },
+      { "<M-k>", mode = "v" },
+      { "<M-l>", mode = "v" },
+    },
+    config = function() require("mini.move").setup() end,
+  },
 }
