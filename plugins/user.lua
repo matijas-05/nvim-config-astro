@@ -192,4 +192,15 @@ return {
       require("telescope").load_extension "undo"
     end,
   },
+  {
+    "shortcuts/no-neck-pain.nvim",
+    version = "*",
+    cmd = { "NoNeckPain" },
+    keys = {
+      { "<leader>bn", "<cmd>NoNeckPain<cr>", desc = "Toggle NoNeckPain" },
+    },
+    opts = {
+      width = 150,
+    },
+  },
 }
