@@ -28,19 +28,11 @@ return {
 
     ["<tab>"] = ":bnext<cr>",
     ["<s-tab>"] = ":bprev<cr>",
-    ["<leader>c"] = false,
-    ["<leader>C"] = false,
-    ["<leader>x"] = {
-      function() require("astronvim.utils.buffer").close() end,
-      desc = "Close buffer",
-    },
-    ["<leader>X"] = {
-      function() require("astronvim.utils.buffer").close(nil, true) end,
-      desc = "Force close buffer",
-    },
 
     ["<A-j>"] = ":m .+1<CR>==",
     ["<A-k>"] = ":m .-2<CR>==",
+
+    ["<leader>x"] = { name = " Error list" },
     -- tables with the `name` key will be registered with which-key if it's installed
     -- this is useful for naming menus
     -- ["<leader>b"] = { name = "Buffers" },

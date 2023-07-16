@@ -4,11 +4,7 @@ return {
     "kylechui/nvim-surround",
     version = "*",
     event = "VeryLazy",
-    config = function()
-      require("nvim-surround").setup {
-        -- Configuration here, or leave empty to use defaults
-      }
-    end,
+    config = function() require("nvim-surround").setup() end,
   },
   {
     "iamcco/markdown-preview.nvim",
@@ -25,13 +21,50 @@ return {
       vim.g.mkdp_page_title = "${name}"
     end,
   },
-  -- Override default theme options
   {
     "AstroNvim/astrotheme",
     opts = {
       style = {
         italic_comments = false,
       },
+    },
+  },
+  {
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    keys = {
+      { "<leader>xx", "<cmd>TroubleToggle<cr>", desc = "Toggle menu" },
+      {
+        "<leader>xw",
+        "<cmd>TroubleToggle workspace_diagnostics<cr>",
+        desc = "Toggle workspace diagnostics menu",
+      },
+      {
+        "<leader>xd",
+        "<cmd>TroubleToggle document_diagnostics<cr>",
+        desc = "Toggle document diagnostics menu",
+      },
+      { "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", desc = "Toggle quickfix menu" },
+      { "<leader>xl", "<cmd>TroubleToggle loclist<cr>", desc = "Toggle location list menu" },
+    },
+    opts = {
+      height = 25,
+      width = 87,
+      position = "right",
+    },
+  },
+  {
+    "folke/todo-comments.nvim",
+    event = "VeryLazy",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    cmd = {
+      "TodoQuickFix",
+      "TodoLocList",
+      "TodoTrouble",
+      "TodoTelescope",
+    },
+    keys = {
+      { "<leader>xt", "<cmd>TodoTrouble<cr>", desc = "Toggle todo-comments list" },
     },
   },
 }
