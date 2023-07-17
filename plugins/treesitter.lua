@@ -6,6 +6,16 @@ return {
       "lua",
       "bash",
       "comment",
+      "gitignore",
+      "json",
+      "jsonc",
+      "yaml",
+      "html",
+      "css",
+      "javascript",
+      "jsdoc",
+      "typescript",
+      "tsx",
     })
     opts.auto_install = true
   end,
