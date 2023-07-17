@@ -4,7 +4,7 @@ return {
   { import = "astrocommunity.pack.json" },
   {
     "vuki656/package-info.nvim",
-    requires = "MunifTanjim/nui.nvim",
+    dependencies = { "MunifTanjim/nui.nvim" },
     opts = { force = true },
     keys = {
       {
@@ -36,7 +36,40 @@ return {
       "javascript",
       "javascriptreact",
     },
-    opts = function() return { server = require("astronvim.utils.lsp").config "tsserver" } end,
+    opts = function()
+      local server1 = require("astronvim.utils.lsp").config "tsserver"
+      local server2 = {
+        settings = {
+          -- specify some or all of the following settings if you want to adjust the default behavior
+          javascript = {
+            inlayHints = {
+              includeInlayEnumMemberValueHints = true,
+              includeInlayFunctionLikeReturnTypeHints = true,
+              includeInlayFunctionParameterTypeHints = true,
+              includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+              includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+              includeInlayPropertyDeclarationTypeHints = true,
+              includeInlayVariableTypeHints = true,
+            },
+          },
+          typescript = {
+            inlayHints = {
+              includeInlayEnumMemberValueHints = true,
+              includeInlayFunctionLikeReturnTypeHints = true,
+              includeInlayFunctionParameterTypeHints = true,
+              includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+              includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+              includeInlayPropertyDeclarationTypeHints = true,
+              includeInlayVariableTypeHints = true,
+            },
+          },
+        },
+      }
+
+      return {
+        server = vim.tbl_deep_extend("force", server1, server2),
+      }
+    end,
   },
   {
     "dmmulroy/tsc.nvim",
