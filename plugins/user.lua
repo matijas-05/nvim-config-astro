@@ -353,4 +353,16 @@ return {
       },
     },
   },
+  {
+    "nvim-tree/nvim-web-devicons",
+    opts = {
+      override = {
+        astro = {
+          icon = "󱎯",
+          name = "Astro",
+          color = "#ec682c",
+        },
+      },
+    },
+  },
 }
