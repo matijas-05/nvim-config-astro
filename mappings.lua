@@ -32,7 +32,48 @@ return {
     ["<leader>x"] = { name = " Error list" },
     ["<leader>fr"] = false,
 
-    ["<c-z>"] = "<nop>",
+    ["<C-Up>"] = false,
+    ["<C-Down>"] = false,
+    ["<c-s-up>"] = {
+      function()
+        if require("astronvim.utils").is_available "smart-splits.nvim" then
+          require("smart-splits").resize_up()
+        else
+          vim.cmd "resize -2"
+        end
+      end,
+      desc = "Resize split up",
+    },
+    ["<c-s-down>"] = {
+      function()
+        if require("astronvim.utils").is_available "smart-splits.nvim" then
+          require("smart-splits").resize_down()
+        else
+          vim.cmd "resize +2"
+        end
+      end,
+      desc = "Resize split down",
+    },
+    ["<c-s-right>"] = {
+      function()
+        if require("astronvim.utils").is_available "smart-splits.nvim" then
+          require("smart-splits").resize_right()
+        else
+          vim.cmd "vertical resize +2"
+        end
+      end,
+      desc = "Resize split right",
+    },
+    ["<c-s-left>"] = {
+      function()
+        if require("astronvim.utils").is_available "smart-splits.nvim" then
+          require("smart-splits").resize_left()
+        else
+          vim.cmd "vertical resize -2"
+        end
+      end,
+      desc = "Resize split left",
+    },
     -- tables with the `name` key will be registered with which-key if it's installed
     -- this is useful for naming menus
     -- ["<leader>b"] = { name = "Buffers" },

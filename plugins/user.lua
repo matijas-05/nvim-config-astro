@@ -204,7 +204,12 @@ return {
     "mg979/vim-visual-multi",
     keys = {
       "<c-n>",
+      "<c-up>",
+      "<c-down>",
+      "<s-left>",
+      "<s-right>",
     },
+    config = function() vim.g.VM_Mono_hl = "Visual" end,
   },
   {
     "nguyenvukhang/nvim-toggler",
