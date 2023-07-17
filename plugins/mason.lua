@@ -11,9 +11,14 @@ return {
         "bashls",
         "tsserver",
         "jsonls",
+        "yamlls",
         "tailwindcss",
         "cssls",
         "astro",
+        "html",
+        "emmet_ls",
+        "docker_compose_language_service",
+        "dockerls",
       })
     end,
   },
@@ -36,6 +41,8 @@ return {
         -- typescript
         "prettierd",
         "eslint_d",
+        -- docker
+        "hadolint",
       })
 
       local function check_json_key_exists(filename, key)

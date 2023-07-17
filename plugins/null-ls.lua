@@ -28,6 +28,8 @@ return {
       actions.eslint_d,
       format.prettierd,
       require "typescript.extensions.null-ls.code-actions",
+      -- docker
+      lint.hadolint,
     })
     return config
   end,
