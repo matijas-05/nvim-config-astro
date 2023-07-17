@@ -176,17 +176,13 @@ return {
     config = function() require("mini.move").setup() end,
   },
   {
-    "nvim-telescope/telescope.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "debugloop/telescope-undo.nvim",
-    },
+    "mbbill/undotree",
     keys = {
-      { "<leader>fu", "<cmd>Telescope undo<cr>", desc = "Undo history" },
+      { "<leader>fu", "<cmd>UndotreeToggle<cr>", desc = "Undo tree" },
     },
     config = function()
-      require("telescope").setup {}
-      require("telescope").load_extension "undo"
+      vim.g.undotree_WindowLayout = 3
+      vim.g.undotree_SplitWidth = 35
     end,
   },
   {
