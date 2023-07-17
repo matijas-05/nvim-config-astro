@@ -206,4 +206,11 @@ return {
       "<c-n>",
     },
   },
+  {
+    "nguyenvukhang/nvim-toggler",
+    keys = {
+      { "<leader>i", desc = "Invert word" },
+    },
+    config = function() require("nvim-toggler").setup() end,
+  },
 }
