@@ -13,6 +13,7 @@ return {
         "jsonls",
         "tailwindcss",
         "cssls",
+        "astro",
       })
     end,
   },
