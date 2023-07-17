@@ -19,6 +19,7 @@ return {
         "emmet_ls",
         "docker_compose_language_service",
         "dockerls",
+        "prismals",
       })
     end,
   },

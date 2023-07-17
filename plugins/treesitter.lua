@@ -18,6 +18,7 @@ return {
       "jsdoc",
       "typescript",
       "tsx",
+      "prisma",
     })
     opts.auto_install = true
   end,
