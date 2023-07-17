@@ -1,7 +1,11 @@
 return {
   {
     "hrsh7th/nvim-cmp",
-    opts = function()
+    dependencies = {
+      { "js-everts/cmp-tailwind-colors", opts = {} },
+    },
+    opts = function(_, opts)
+      local format_kinds = opts.formatting.format
       local cmp = require "cmp"
       local snip_status_ok, luasnip = pcall(require, "luasnip")
       local utils = require "astronvim.utils"
@@ -13,9 +17,20 @@ return {
 
       local function has_words_before()
         local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-        return col ~= 0
-          and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match "%s"
-            == nil
+        local current_line = vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]
+
+        -- Check if the cursor is at the beginning of the line
+        if col == 0 then return false end
+
+        -- Check if there is at least one whitespace character before the cursor
+        local char_before_cursor = current_line:sub(col - 1, col - 1)
+        if char_before_cursor:match "%s" then return true end
+
+        -- Check if there are any non-whitespace characters before the cursor
+        local text_before_cursor = current_line:sub(1, col - 1)
+        if text_before_cursor:match "%S" then return true end
+
+        return false
       end
 
       return {
@@ -38,6 +53,13 @@ return {
             if vim.tbl_contains({ "path" }, entry.source.name) then
               local icon, hl_group =
                 require("nvim-web-devicons").get_icon(entry:get_completion_item().label)
+
+              if vim_item.kind == "Color" then
+                vim_item = require("cmp-tailwind-colors").format(entry, vim_item)
+                if vim_item.kind == "Color" then return format_kinds(entry, vim_item) end
+                return vim_item
+              end
+
               if icon then
                 vim_item.kind = icon .. " "
                 vim_item.kind_hl_group = hl_group

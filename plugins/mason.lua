@@ -10,6 +10,9 @@ return {
         "lua_ls",
         "bashls",
         "tsserver",
+        "jsonls",
+        "tailwindcss",
+        "cssls",
       })
     end,
   },
