@@ -10,7 +10,7 @@ return {
     "iamcco/markdown-preview.nvim",
     build = function() vim.fn["mkdp#util#install"]() end,
     ft = "markdown",
-    keys = { { "gm", "<cmd>MarkdownPreviewToggle<cr>", desc = "Markdown Preview" } },
+    keys = { { "<leader>m", "<cmd>MarkdownPreviewToggle<cr>", desc = "Markdown Preview" } },
     config = function()
       vim.g.mkdp_auto_close = true
       vim.g.mkdp_open_to_the_world = false
@@ -212,5 +212,23 @@ return {
       { "<leader>i", desc = "Invert word" },
     },
     config = function() require("nvim-toggler").setup() end,
+  },
+  {
+    "wakatime/vim-wakatime",
+    event = "VeryLazy",
+  },
+  {
+    "echasnovski/mini.splitjoin",
+    version = "*",
+    keys = {
+      { "<leader>s", desc = "Split/join line" },
+    },
+    config = function()
+      require("mini.splitjoin").setup {
+        mappings = {
+          toggle = "<leader>s",
+        },
+      }
+    end,
   },
 }
