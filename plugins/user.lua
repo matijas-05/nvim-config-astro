@@ -39,11 +39,23 @@ return {
       { "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", desc = "Toggle quickfix menu" },
       { "<leader>xl", "<cmd>TroubleToggle loclist<cr>", desc = "Toggle location list menu" },
     },
-    opts = {
-      height = 25,
-      width = 87,
-      position = "right",
-    },
+    opts = function()
+      local os = vim.loop.os_uname().sysname
+
+      if os == "Darwin" then
+        return {
+          height = 20,
+          width = 87,
+          position = "bottom",
+        }
+      else
+        return {
+          height = 25,
+          width = 87,
+          position = "right",
+        }
+      end
+    end,
   },
   {
     "folke/todo-comments.nvim",
