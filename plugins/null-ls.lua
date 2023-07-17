@@ -1,3 +1,5 @@
+local utils = require "astronvim.utils"
+
 return {
   "jose-elias-alvarez/null-ls.nvim",
   opts = function(_, config)
@@ -5,11 +7,12 @@ return {
     local null_ls = require "null-ls"
     local format = null_ls.builtins.formatting
     local lint = null_ls.builtins.diagnostics
+    local actions = null_ls.builtins.code_actions
 
     -- Check supported formatters and linters
     -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
     -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
-    config.sources = {
+    config.sources = utils.list_insert_unique(config.sources, {
       -- lua
       lint.selene,
       format.stylua,
@@ -19,7 +22,13 @@ return {
       -- markdown
       lint.markdownlint,
       format.markdownlint,
-    }
+      -- typescript
+      lint.tsc,
+      lint.eslint_d,
+      actions.eslint_d,
+      format.prettierd,
+      require "typescript.extensions.null-ls.code-actions",
+    })
     return config
   end,
 }
