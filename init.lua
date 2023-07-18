@@ -76,7 +76,7 @@ return {
       pattern = { "*" },
     })
 
-    vim.api.nvim_set_keymap("t", "<C-Esc>", "<C-\\><C-n>", { noremap = true })
+    vim.api.nvim_set_keymap("t", "<M-q>", "<C-\\><C-n>", { noremap = true })
 
     -- Set up custom filetypes
     -- vim.filetype.add {
