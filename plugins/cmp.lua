@@ -87,6 +87,9 @@ return {
           completion = cmp.config.window.bordered(border_opts),
           documentation = cmp.config.window.bordered(border_opts),
         },
+        completion = {
+          completeopt = "menu,menuone,noinsert",
+        },
         mapping = {
           ["<Up>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Select },
           ["<Down>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Select },
