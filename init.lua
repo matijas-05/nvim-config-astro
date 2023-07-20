@@ -78,6 +78,15 @@ return {
 
     vim.api.nvim_set_keymap("t", "<M-q>", "<C-\\><C-n>", { noremap = true })
 
+    -- Disable diagnostics for .env files
+    local group = vim.api.nvim_create_augroup("__env", { clear = true })
+    vim.api.nvim_create_autocmd("BufEnter", {
+      pattern = ".env",
+      group = group,
+      callback = function(args) vim.diagnostic.disable(args.buf) end,
+    })
+
+    local a = ""
     -- Set up custom filetypes
     -- vim.filetype.add {
     --   extension = {
