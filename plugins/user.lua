@@ -363,6 +363,32 @@ return {
           color = "#ec682c",
         },
       },
+      override_by_filename = {
+        [".env.test"] = {
+          icon = "",
+          color = "#faf743",
+          cterm_color = "227",
+          name = "Env",
+        },
+        [".env.local"] = {
+          icon = "",
+          color = "#faf743",
+          cterm_color = "227",
+          name = "Env",
+        },
+        [".env.development"] = {
+          icon = "",
+          color = "#faf743",
+          cterm_color = "227",
+          name = "Env",
+        },
+        [".env.example"] = {
+          icon = "",
+          color = "#faf743",
+          cterm_color = "227",
+          name = "Env",
+        },
+      },
     },
   },
 }

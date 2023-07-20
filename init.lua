@@ -81,23 +81,22 @@ return {
     -- Disable diagnostics for .env files
     local group = vim.api.nvim_create_augroup("__env", { clear = true })
     vim.api.nvim_create_autocmd("BufEnter", {
-      pattern = ".env",
+      pattern = ".env*",
       group = group,
       callback = function(args) vim.diagnostic.disable(args.buf) end,
     })
 
-    local a = ""
     -- Set up custom filetypes
-    -- vim.filetype.add {
-    --   extension = {
-    --     foo = "fooscript",
-    --   },
-    --   filename = {
-    --     ["Foofile"] = "fooscript",
-    --   },
-    --   pattern = {
-    --     ["~/%.config/foo/.*"] = "fooscript",
-    --   },
-    -- }
+    vim.filetype.add {
+      -- extension = {
+      --   foo = "fooscript",
+      -- },
+      -- filename = {
+      --   ["Foofile"] = "fooscript",
+      -- },
+      pattern = {
+        [".env.*"] = "sh",
+      },
+    }
   end,
 }
