@@ -104,8 +104,8 @@ return {
           ["<C-e>"] = cmp.mapping { i = cmp.mapping.abort(), c = cmp.mapping.close() },
           ["<CR>"] = cmp.mapping.confirm { select = false },
           ["<Tab>"] = vim.schedule_wrap(function(fallback)
-            if luasnip.expand_or_jumpable() then
-              luasnip.expand_or_jump()
+            if luasnip.jumpable(1) then
+              luasnip.jump(1)
             else
               fallback()
             end
