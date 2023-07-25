@@ -12,25 +12,7 @@ return {
     -- Check supported formatters and linters
     -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
     -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
-    config.sources = utils.list_insert_unique(config.sources, {
-      -- lua
-      lint.selene,
-      format.stylua,
-      -- shell
-      lint.shellcheck,
-      format.shfmt,
-      -- markdown
-      lint.markdownlint,
-      format.markdownlint,
-      -- typescript
-      lint.tsc,
-      lint.eslint_d,
-      actions.eslint_d,
-      format.prettierd,
-      require "typescript.extensions.null-ls.code-actions",
-      -- docker
-      lint.hadolint,
-    })
+    config.sources = utils.list_insert_unique(config.sources, {})
     return config
   end,
 }

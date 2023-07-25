@@ -1,8 +1,0 @@
-[selene]
-base = "lua53"
-
-[vim]
-any = true
-
-[jit]
-any = true

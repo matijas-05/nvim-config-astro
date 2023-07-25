@@ -1,6 +1,15 @@
 return {
   -- You can also add new plugins here as well:
   {
+    "AstroNvim/astrotheme",
+    opts = {
+      style = {
+        italic_comments = false,
+      },
+      terminal_colors = false,
+    },
+  },
+  {
     "kylechui/nvim-surround",
     version = "*",
     event = "VeryLazy",
@@ -85,17 +94,6 @@ return {
         mode = { "c" },
         function() require("flash").toggle() end,
         desc = "Toggle Flash Search",
-      },
-    },
-  },
-  {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    event = "User AstroFile",
-    opts = {
-      suggestion = {
-        auto_trigger = true,
-        debounce = 150,
       },
     },
   },
@@ -314,37 +312,6 @@ return {
       { "<P", "<Plug>(YankyPutIndentBeforeShiftLeft)", desc = "Put before and indent left" },
       { "=p", "<Plug>(YankyPutAfterFilter)", desc = "Put after applying a filter" },
       { "=P", "<Plug>(YankyPutBeforeFilter)", desc = "Put before applying a filter" },
-    },
-  },
-  {
-    "lvimuser/lsp-inlayhints.nvim",
-    init = function()
-      vim.api.nvim_create_autocmd("LspAttach", {
-        group = vim.api.nvim_create_augroup("LspAttach_inlayhints", {}),
-        callback = function(args)
-          if not (args.data and args.data.client_id) then return end
-          local client = vim.lsp.get_client_by_id(args.data.client_id)
-          if client.server_capabilities.inlayHintProvider then
-            local inlayhints = require "lsp-inlayhints"
-            inlayhints.on_attach(client, args.buf)
-            require("astronvim.utils").set_mappings({
-              n = {
-                ["<leader>uH"] = { inlayhints.toggle, desc = "Toggle inlay hints" },
-              },
-            }, { buffer = args.buf })
-          end
-        end,
-      })
-    end,
-    opts = {},
-  },
-  {
-    "NvChad/nvim-colorizer.lua",
-    opts = {
-      user_default_options = {
-        names = true,
-        tailwind = true,
-      },
     },
   },
   {
