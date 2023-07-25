@@ -3,6 +3,7 @@ return {
     "hrsh7th/nvim-cmp",
     dependencies = {
       { "js-everts/cmp-tailwind-colors", opts = {} },
+      { "zbirenbaum/copilot.lua" },
     },
     opts = function(_, opts)
       local format_kinds = opts.formatting.format
@@ -14,6 +15,7 @@ return {
         border = "single",
         winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
       }
+      local copilot = require "copilot.suggestion"
 
       local function has_words_before()
         local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -103,13 +105,19 @@ return {
           ["<C-y>"] = cmp.config.disable,
           ["<C-e>"] = cmp.mapping { i = cmp.mapping.abort(), c = cmp.mapping.close() },
           ["<CR>"] = cmp.mapping.confirm { select = false },
-          ["<Tab>"] = vim.schedule_wrap(function(fallback)
-            if luasnip.jumpable(1) then
-              luasnip.jump(1)
+          ["<Tab>"] = cmp.mapping(function(fallback)
+            if copilot.is_visible() then
+              copilot.accept()
+            elseif cmp.visible() then
+              cmp.select_next_item()
+            elseif luasnip.expand_or_jumpable() then
+              luasnip.expand_or_jump()
+            elseif has_words_before() then
+              cmp.complete()
             else
               fallback()
             end
-          end),
+          end, { "i", "s" }),
           ["<S-Tab>"] = cmp.mapping(function(fallback)
             if luasnip.jumpable(-1) then
               luasnip.jump(-1)

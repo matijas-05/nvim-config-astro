@@ -89,9 +89,15 @@ return {
     },
   },
   {
-    "github/copilot.vim",
-    event = "VeryLazy",
-    config = function() vim.g.copilot_assume_mapped = true end,
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "User AstroFile",
+    opts = {
+      suggestion = {
+        auto_trigger = true,
+        debounce = 150,
+      },
+    },
   },
   {
     "RRethy/vim-illuminate",
