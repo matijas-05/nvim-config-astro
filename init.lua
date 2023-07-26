@@ -83,7 +83,6 @@ return {
       pattern = { "*" },
     })
 
-    vim.api.nvim_set_keymap("t", "<M-q>", "<C-\\><C-n>", { noremap = true })
     vim.cmd "set signcolumn=yes:1"
 
     -- Disable diagnostics for .env files

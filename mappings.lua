@@ -74,10 +74,24 @@ return {
       end,
       desc = "Resize split left",
     },
+    ["<leader>pu"] = {
+      function() require("package-info").change_version() end,
+      desc = "Update package",
+    },
+    ["<leader>pd"] = {
+      function() require("package-info").delete() end,
+      desc = "Delete package",
+    },
     -- tables with the `name` key will be registered with which-key if it's installed
     -- this is useful for naming menus
     -- ["<leader>b"] = { name = "Buffers" },
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+  },
+  t = {
+    ["<M-q>"] = {
+      "<C-\\><C-n>",
+      desc = "Exit terminal mode",
+    },
   },
 }

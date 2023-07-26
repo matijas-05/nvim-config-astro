@@ -4,6 +4,7 @@ return {
     dependencies = {
       { "js-everts/cmp-tailwind-colors", opts = {} },
       { "zbirenbaum/copilot.lua" },
+      { "hrsh7th/cmp-nvim-lsp-signature-help" },
     },
     opts = function(_, opts)
       local format_kinds = opts.formatting.format
@@ -108,8 +109,8 @@ return {
           ["<Tab>"] = cmp.mapping(function(fallback)
             if copilot.is_visible() then
               copilot.accept()
-            elseif luasnip.expand_or_jumpable() then
-              luasnip.expand_or_jump()
+            elseif luasnip.jumpable(1) then
+              luasnip.jump(1)
             else
               fallback()
             end
@@ -123,6 +124,7 @@ return {
           end, { "i", "s" }),
         },
         sources = cmp.config.sources {
+          { name = "nvim_lsp_signature_help", priority = 1250 },
           { name = "nvim_lsp", priority = 1000 },
           { name = "luasnip", priority = 750 },
           { name = "buffer", priority = 500 },
@@ -131,13 +133,13 @@ return {
       }
     end,
   },
-  {
-    "ray-x/lsp_signature.nvim",
-    event = "VeryLazy",
-    config = function()
-      require("lsp_signature").setup {
-        hint_enable = false,
-      }
-    end,
-  },
+  -- {
+  --   "ray-x/lsp_signature.nvim",
+  --   event = "VeryLazy",
+  --   config = function()
+  --     require("lsp_signature").setup {
+  --       hint_enable = false,
+  --     }
+  --   end,
+  -- },
 }
