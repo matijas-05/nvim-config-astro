@@ -19,5 +19,4 @@ return {
 
   { import = "astrocommunity.completion.copilot-lua" },
   { import = "astrocommunity.lsp.lsp-inlayhints-nvim" },
-  { import = "astrocommunity.diagnostics.lsp_lines-nvim" },
 }
