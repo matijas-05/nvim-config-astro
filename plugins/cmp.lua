@@ -18,24 +18,6 @@ return {
       }
       local copilot = require "copilot.suggestion"
 
-      local function has_words_before()
-        local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-        local current_line = vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]
-
-        -- Check if the cursor is at the beginning of the line
-        if col == 0 then return false end
-
-        -- Check if there is at least one whitespace character before the cursor
-        local char_before_cursor = current_line:sub(col - 1, col - 1)
-        if char_before_cursor:match "%s" then return true end
-
-        -- Check if there are any non-whitespace characters before the cursor
-        local text_before_cursor = current_line:sub(1, col - 1)
-        if text_before_cursor:match "%S" then return true end
-
-        return false
-      end
-
       return {
         enabled = function()
           local dap_prompt = utils.is_available "cmp-dap" -- add interoperability with cmp-dap
@@ -126,6 +108,7 @@ return {
         sources = cmp.config.sources {
           { name = "nvim_lsp_signature_help", priority = 1250 },
           { name = "nvim_lsp", priority = 1000 },
+          { name = "crates", priority = 800 },
           { name = "luasnip", priority = 750 },
           { name = "buffer", priority = 500 },
           { name = "path", priority = 250 },

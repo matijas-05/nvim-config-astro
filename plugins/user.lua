@@ -1,14 +1,4 @@
 return {
-  -- You can also add new plugins here as well:
-  {
-    "AstroNvim/astrotheme",
-    opts = {
-      style = {
-        italic_comments = false,
-      },
-      terminal_colors = false,
-    },
-  },
   {
     "kylechui/nvim-surround",
     version = "*",
@@ -73,7 +63,13 @@ return {
     "folke/flash.nvim",
     event = "VeryLazy",
     ---@type Flash.Config
-    opts = {},
+    opts = {
+      modes = {
+        char = {
+          enabled = false,
+        },
+      },
+    },
     keys = {
       { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
       {
@@ -312,44 +308,6 @@ return {
       { "<P", "<Plug>(YankyPutIndentBeforeShiftLeft)", desc = "Put before and indent left" },
       { "=p", "<Plug>(YankyPutAfterFilter)", desc = "Put after applying a filter" },
       { "=P", "<Plug>(YankyPutBeforeFilter)", desc = "Put before applying a filter" },
-    },
-  },
-  {
-    "nvim-tree/nvim-web-devicons",
-    opts = {
-      override = {
-        astro = {
-          icon = "󱎯",
-          name = "Astro",
-          color = "#ec682c",
-        },
-      },
-      override_by_filename = {
-        [".env.test"] = {
-          icon = "",
-          color = "#faf743",
-          cterm_color = "227",
-          name = "Env",
-        },
-        [".env.local"] = {
-          icon = "",
-          color = "#faf743",
-          cterm_color = "227",
-          name = "Env",
-        },
-        [".env.development"] = {
-          icon = "",
-          color = "#faf743",
-          cterm_color = "227",
-          name = "Env",
-        },
-        [".env.example"] = {
-          icon = "",
-          color = "#faf743",
-          cterm_color = "227",
-          name = "Env",
-        },
-      },
     },
   },
 }

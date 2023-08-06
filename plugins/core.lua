@@ -21,18 +21,63 @@ return {
     end,
   },
   -- You can disable default plugins as follows:
-  -- { "max397574/better-escape.nvim", enabled = false },
-  --
+  { "max397574/better-escape.nvim", enabled = false },
+  {
+    "AstroNvim/astrotheme",
+    opts = {
+      style = {
+        italic_comments = false,
+      },
+      terminal_colors = false,
+    },
+  },
+  {
+    "nvim-tree/nvim-web-devicons",
+    opts = {
+      override = {
+        astro = {
+          icon = "󱎯",
+          name = "Astro",
+          color = "#ec682c",
+        },
+      },
+      override_by_filename = {
+        [".env.test"] = {
+          icon = "",
+          color = "#faf743",
+          cterm_color = "227",
+          name = "Env",
+        },
+        [".env.local"] = {
+          icon = "",
+          color = "#faf743",
+          cterm_color = "227",
+          name = "Env",
+        },
+        [".env.development"] = {
+          icon = "",
+          color = "#faf743",
+          cterm_color = "227",
+          name = "Env",
+        },
+        [".env.example"] = {
+          icon = "",
+          color = "#faf743",
+          cterm_color = "227",
+          name = "Env",
+        },
+      },
+    },
+  },
+  {
+    "L3MON4D3/LuaSnip",
+    opts = {
+      region_check_events = "CursorHold,InsertLeave",
+      delete_check_events = "TextChanged,InsertEnter",
+    },
+  },
+
   -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
-  -- {
-  --   "L3MON4D3/LuaSnip",
-  --   config = function(plugin, opts)
-  --     require "plugins.configs.luasnip"(plugin, opts) -- include the default astronvim config that calls the setup call
-  --     -- add more custom luasnip configuration such as filetype extend or custom snippets
-  --     local luasnip = require "luasnip"
-  --     luasnip.filetype_extend("javascript", { "javascriptreact" })
-  --   end,
-  -- },
   -- {
   --   "windwp/nvim-autopairs",
   --   config = function(plugin, opts)
