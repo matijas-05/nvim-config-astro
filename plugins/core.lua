@@ -76,6 +76,16 @@ return {
       delete_check_events = "TextChanged,InsertEnter",
     },
   },
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = {
+      defaults = {
+        file_ignore_patterns = {
+          "node_modules",
+        },
+      },
+    },
+  },
 
   -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
   -- {
