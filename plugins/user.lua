@@ -190,17 +190,6 @@ return {
     end,
   },
   {
-    "shortcuts/no-neck-pain.nvim",
-    version = "*",
-    cmd = { "NoNeckPain" },
-    keys = {
-      { "<leader>bn", "<cmd>NoNeckPain<cr>", desc = "Toggle NoNeckPain" },
-    },
-    opts = {
-      width = 150,
-    },
-  },
-  {
     "mg979/vim-visual-multi",
     keys = {
       "<c-n>",
