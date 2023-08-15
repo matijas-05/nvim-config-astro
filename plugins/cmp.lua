@@ -4,7 +4,6 @@ return {
     dependencies = {
       { "js-everts/cmp-tailwind-colors", opts = {} },
       { "zbirenbaum/copilot.lua" },
-      { "hrsh7th/cmp-nvim-lsp-signature-help" },
     },
     opts = function(_, opts)
       local format_kinds = opts.formatting.format
@@ -106,7 +105,6 @@ return {
           end, { "i", "s" }),
         },
         sources = cmp.config.sources {
-          { name = "nvim_lsp_signature_help", priority = 1250 },
           { name = "nvim_lsp", priority = 1000 },
           { name = "crates", priority = 800 },
           { name = "luasnip", priority = 750 },
@@ -116,13 +114,4 @@ return {
       }
     end,
   },
-  -- {
-  --   "ray-x/lsp_signature.nvim",
-  --   event = "VeryLazy",
-  --   config = function()
-  --     require("lsp_signature").setup {
-  --       hint_enable = false,
-  --     }
-  --   end,
-  -- },
 }
