@@ -77,14 +77,7 @@ return {
         },
       },
       window = {
-        width = function()
-          local os = vim.loop.os_uname().sysname
-          if os == "Darwin" then
-            return 30
-          else
-            return 40
-          end
-        end,
+        width = 40,
       },
       source_selector = {
         winbar = false,

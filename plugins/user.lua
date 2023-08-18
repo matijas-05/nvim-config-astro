@@ -310,4 +310,10 @@ return {
     },
     config = function(_, opts) require("lsp_signature").setup(opts) end,
   },
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    event = "BufRead",
+    opts = {},
+    cmd = { "TSContextEnable", "TSContextDisable", "TSContextToggle" },
+  },
 }
