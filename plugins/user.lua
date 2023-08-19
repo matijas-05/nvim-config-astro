@@ -304,7 +304,7 @@ return {
   },
   {
     "ray-x/lsp_signature.nvim",
-    event = "VeryLazy",
+    event = "BufRead",
     opts = {
       hint_enable = false,
     },
