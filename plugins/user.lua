@@ -316,4 +316,12 @@ return {
     opts = {},
     cmd = { "TSContextEnable", "TSContextDisable", "TSContextToggle" },
   },
+  {
+    "chentoast/marks.nvim",
+    keys = {
+      "m",
+      "dm",
+    },
+    config = {},
+  },
 }
