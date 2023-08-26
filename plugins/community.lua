@@ -13,6 +13,10 @@ return {
   { import = "astrocommunity.pack.markdown" },
   { import = "astrocommunity.pack.prisma" },
   { import = "astrocommunity.pack.rust" },
+  {
+    "simrat39/rust-tools.nvim",
+    enabled = false,
+  },
   { import = "astrocommunity.pack.tailwindcss" },
   { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.yaml" },
