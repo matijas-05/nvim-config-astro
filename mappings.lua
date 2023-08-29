@@ -82,9 +82,9 @@ return {
       function() require("package-info").delete() end,
       desc = "Delete package",
     },
-    ["<C-a>"] = {
-      "ggVG",
-    },
+    ["<C-a>"] = { "ggVG" },
+    ["H"] = { "_" },
+    ["L"] = { "$" },
     -- tables with the `name` key will be registered with which-key if it's installed
     -- this is useful for naming menus
     -- ["<leader>b"] = { name = "Buffers" },
