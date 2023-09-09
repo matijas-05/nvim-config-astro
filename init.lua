@@ -95,11 +95,9 @@ return {
     vim.cmd "set signcolumn=yes:1"
 
     -- Disable diagnostics for .env files
-    local group = vim.api.nvim_create_augroup("__env", { clear = true })
     vim.api.nvim_create_autocmd("BufEnter", {
       pattern = ".env*",
-      group = group,
-      callback = function(args) vim.diagnostic.disable(args.buf) end,
+      command = "set filetype=conf",
     })
 
     -- Set up custom filetypes
@@ -110,9 +108,9 @@ return {
       -- filename = {
       --   ["Foofile"] = "fooscript",
       -- },
-      pattern = {
-        [".env.*"] = "sh",
-      },
+      -- pattern = {
+      --   [".env.*"] = "sh",
+      -- },
     }
   end,
 }
