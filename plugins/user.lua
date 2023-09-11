@@ -324,4 +324,9 @@ return {
     },
     config = {},
   },
+  {
+    "hiphish/rainbow-delimiters.nvim",
+    event = "BufRead",
+    config = function() require "rainbow-delimiters.setup" {} end,
+  },
 }
