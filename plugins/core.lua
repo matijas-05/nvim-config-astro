@@ -86,6 +86,28 @@ return {
       },
     },
   },
+  -- For some reason playwright integration with neotest is not working with this
+  -- We can sort of work around it by doing the following but once it's disabled,
+  -- it's disabled until restarting nvim
+  {
+    "stevearc/dressing.nvim",
+    event = "VeryLazy",
+    opts = {
+      select = {
+        get_config = function(opts)
+          local neotest_playwright = {
+            "Select projects to include in the next test run:",
+            "Select preset for neotest-playwright:",
+          }
+          if vim.tbl_contains(neotest_playwright, opts.prompt) then
+            return {
+              enabled = false,
+            }
+          end
+        end,
+      },
+    },
+  },
 
   -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
   -- {

@@ -85,6 +85,18 @@ return {
     ["<C-a>"] = { "ggVG" },
     ["H"] = { "_" },
     ["L"] = { "$" },
+    ["<leader>tt"] = {
+      function() require("neotest.consumers.summary").toggle() end,
+      desc = "Toggle test summary",
+    },
+    ["<leader>tb"] = {
+      function()
+        local Terminal = require("toggleterm.terminal").Terminal
+        local btm = Terminal:new { cmd = "btm", hidden = true }
+        btm:toggle()
+      end,
+      desc = "ToggleTerm btm",
+    },
     -- tables with the `name` key will be registered with which-key if it's installed
     -- this is useful for naming menus
     -- ["<leader>b"] = { name = "Buffers" },
