@@ -14,7 +14,6 @@ return {
     -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
     config.sources = utils.list_insert_unique(config.sources, {
       lint.misspell,
-      lint.eslint_d,
     })
     return config
   end,
