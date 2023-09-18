@@ -20,6 +20,7 @@ return {
   { import = "astrocommunity.pack.tailwindcss" },
   { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.yaml" },
+  { import = "astrocommunity.pack.java" },
 
   { import = "astrocommunity.completion.copilot-lua" },
   { import = "astrocommunity.lsp.lsp-inlayhints-nvim" },
