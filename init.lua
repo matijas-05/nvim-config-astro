@@ -44,6 +44,7 @@ return {
         "lua_ls",
         "tsserver",
         "jdtls",
+        "jsonls",
       },
       timeout_ms = 1000, -- default format timeout
     },

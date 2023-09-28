@@ -54,11 +54,31 @@ return {
           or check_json_key_exists(vim.fn.getcwd() .. "/package.json", "eslintConfig")
       end
 
+      local has_prettier = function()
+        -- print(vim.inspect(require("null-ls.config").get().root_dir(vim.api.nvim_buf_get_name(0))))
+        return file_exists ".prettierrc"
+          or file_exists ".prettierrc.json"
+          or file_exists ".prettierrc.yml"
+          or file_exists ".prettierrc.yaml"
+          or file_exists ".prettierrc.json5"
+          or file_exists ".prettierrc.js"
+          or file_exists ".prettierrc.cjs"
+          or file_exists "prettier.config.js"
+          or file_exists "prettier.config.cjs"
+          or file_exists ".prettierrc.toml"
+          or check_json_key_exists(vim.fn.getcwd() .. "/package.json", "prettier")
+      end
+
       opts.handlers.eslint_d = function()
         local null_ls = require "null-ls"
         null_ls.register(null_ls.builtins.diagnostics.eslint_d.with { condition = has_eslint })
         null_ls.register(null_ls.builtins.formatting.eslint_d.with { condition = has_eslint })
         null_ls.register(null_ls.builtins.code_actions.eslint_d.with { condition = has_eslint })
+      end
+
+      opts.handlers.prettierd = function()
+        local null_ls = require "null-ls"
+        null_ls.register(null_ls.builtins.formatting.prettierd.with { condition = has_prettier })
       end
 
       -- add more things to the ensure_installed table protecting against community packs modifying it
