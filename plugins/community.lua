@@ -21,6 +21,7 @@ return {
   { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.yaml" },
   { import = "astrocommunity.pack.java" },
+  { import = "astrocommunity.pack.go" },
 
   { import = "astrocommunity.completion.copilot-lua" },
   { import = "astrocommunity.lsp.lsp-inlayhints-nvim" },
