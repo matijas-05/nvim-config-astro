@@ -69,6 +69,13 @@ return {
           },
         },
       },
+      clangd = {
+        cmd = {
+          "clangd",
+          "--enable-config",
+          "--offset-encoding=utf-16",
+        },
+      },
     },
   },
 

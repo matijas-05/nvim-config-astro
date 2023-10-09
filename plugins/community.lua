@@ -21,6 +21,12 @@ return {
   { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.yaml" },
   { import = "astrocommunity.pack.java" },
+  { import = "astrocommunity.pack.cpp" },
+  {
+    "Civitasv/cmake-tools.nvim",
+    enabled = false,
+  },
+  { import = "astrocommunity.pack.cmake" },
 
   { import = "astrocommunity.completion.copilot-lua" },
   { import = "astrocommunity.lsp.lsp-inlayhints-nvim" },
