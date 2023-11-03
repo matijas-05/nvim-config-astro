@@ -45,6 +45,7 @@ return {
         "tsserver",
         "jdtls",
         "jsonls",
+        "html",
       },
       timeout_ms = 1000, -- default format timeout
     },
@@ -101,12 +102,20 @@ return {
       pattern = { "*" },
     })
 
-    vim.cmd "set signcolumn=yes:1"
+    vim.o.signcolumn = "yes:1"
 
     -- Disable diagnostics for .env files
     vim.api.nvim_create_autocmd("BufEnter", {
       pattern = ".env*",
       command = "set filetype=conf",
+    })
+
+    -- Temp fix for eslint not formatting on save
+    -- https://github.com/AstroNvim/astrocommunity/issues/608
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      callback = function()
+        if vim.fn.exists ":EslintFixAll" > 0 then vim.cmd "EslintFixAll" end
+      end,
     })
 
     -- Set up custom filetypes

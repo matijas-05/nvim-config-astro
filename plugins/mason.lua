@@ -43,17 +43,6 @@ return {
         return vim.fn.filereadable(full_path) == 1
       end
 
-      -- The community pack checks don't work
-      local has_eslint = function()
-        -- print(vim.inspect(require("null-ls.config").get().root_dir(vim.api.nvim_buf_get_name(0))))
-        return file_exists ".eslintrc.js"
-          or file_exists ".eslintrc.cjs"
-          or file_exists ".eslintrc.yaml"
-          or file_exists ".eslintrc.yml"
-          or file_exists ".eslintrc.json"
-          or check_json_key_exists(vim.fn.getcwd() .. "/package.json", "eslintConfig")
-      end
-
       local has_prettier = function()
         -- print(vim.inspect(require("null-ls.config").get().root_dir(vim.api.nvim_buf_get_name(0))))
         return file_exists ".prettierrc"
@@ -69,15 +58,8 @@ return {
           or check_json_key_exists(vim.fn.getcwd() .. "/package.json", "prettier")
       end
 
-      opts.handlers.eslint_d = function()
-        local null_ls = require "null-ls"
-        null_ls.register(null_ls.builtins.diagnostics.eslint_d.with { condition = has_eslint })
-        null_ls.register(null_ls.builtins.formatting.eslint_d.with { condition = has_eslint })
-        null_ls.register(null_ls.builtins.code_actions.eslint_d.with { condition = has_eslint })
-      end
-
+      local null_ls = require "null-ls"
       opts.handlers.prettierd = function()
-        local null_ls = require "null-ls"
         null_ls.register(null_ls.builtins.formatting.prettierd.with { condition = has_prettier })
       end
 
