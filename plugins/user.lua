@@ -11,7 +11,7 @@ return {
     ft = "markdown",
     keys = { { "<leader>m", "<cmd>MarkdownPreviewToggle<cr>", desc = "Markdown Preview" } },
     config = function()
-      vim.g.mkdp_auto_close = true
+      vim.g.mkdp_auto_close = false
       vim.g.mkdp_open_to_the_world = false
       vim.g.mkdp_open_ip = "127.0.0.1"
       vim.g.mkdp_port = "8888"
