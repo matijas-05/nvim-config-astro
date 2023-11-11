@@ -26,6 +26,21 @@ return {
     "Civitasv/cmake-tools.nvim",
     enabled = false,
   },
+  {
+    "Saecki/crates.nvim",
+    event = { "BufRead Cargo.toml" },
+    opts = {
+      src = {
+        cmp = {
+          enabled = true,
+        },
+      },
+      null_ls = {
+        enabled = true,
+        name = "crates.nvim",
+      },
+    },
+  },
   { import = "astrocommunity.pack.cmake" },
 
   { import = "astrocommunity.completion.copilot-lua" },
