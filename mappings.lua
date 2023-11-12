@@ -97,6 +97,8 @@ return {
       end,
       desc = "ToggleTerm btm",
     },
+    ["<C-U>"] = "<C-U>zz",
+    ["<C-D>"] = "<C-D>zz",
     -- tables with the `name` key will be registered with which-key if it's installed
     -- this is useful for naming menus
     -- ["<leader>b"] = { name = "Buffers" },
