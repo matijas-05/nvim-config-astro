@@ -110,13 +110,14 @@ return {
       command = "set filetype=conf",
     })
 
-    -- Temp fix for eslint not formatting on save
+    -- Don't fix eslint errors on save because it's laggy on larger files
+    -- Temp fix for eslint not fixing on save
     -- https://github.com/AstroNvim/astrocommunity/issues/608
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      callback = function()
-        if vim.fn.exists ":EslintFixAll" > 0 then vim.cmd "EslintFixAll" end
-      end,
-    })
+    -- vim.api.nvim_create_autocmd("BufWritePre", {
+    --   callback = function()
+    --     if vim.fn.exists ":EslintFixAll" > 0 then vim.cmd "EslintFixAll" end
+    --   end,
+    -- })
 
     -- Set up custom filetypes
     vim.filetype.add {
