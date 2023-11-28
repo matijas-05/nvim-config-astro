@@ -105,6 +105,10 @@ return {
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
   },
+  v = {
+    ["H"] = { "_" },
+    ["L"] = { "$" },
+  },
   t = {
     ["<M-q>"] = {
       "<C-\\><C-n>",
