@@ -286,4 +286,11 @@ return {
     event = "BufRead",
     config = function() require("rainbow-delimiters.setup").setup {} end,
   },
+  {
+    "3rd/image.nvim",
+    event = "BufRead",
+    config = {
+      tmux_show_only_in_active_window = true,
+    },
+  },
 }
