@@ -5,8 +5,9 @@ return {
     relativenumber = true, -- sets vim.opt.relativenumber
     number = true, -- sets vim.opt.number
     spell = false, -- sets vim.opt.spell
-    signcolumn = "auto", -- sets vim.opt.signcolumn to auto
     wrap = false, -- sets vim.opt.wrap
+    signcolumn = "yes:1",
+    guicursor = "n-v-c-i:block",
   },
   g = {
     mapleader = " ", -- sets vim.g.mapleader

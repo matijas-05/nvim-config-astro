@@ -97,8 +97,6 @@ return {
   polish = function()
     -- Reload file on change
     vim.o.autoread = true
-    vim.o.signcolumn = "yes:1"
-
     vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
       command = "if mode() != 'c' | checktime | endif",
       pattern = { "*" },
