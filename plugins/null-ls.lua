@@ -12,9 +12,7 @@ return {
     -- Check supported formatters and linters
     -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
     -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
-    config.sources = utils.list_insert_unique(config.sources, {
-      lint.misspell,
-    })
+    config.sources = utils.list_insert_unique(config.sources, {})
     return config
   end,
 }
