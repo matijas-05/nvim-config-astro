@@ -266,7 +266,7 @@ return {
     },
   },
   {
-    "SvanT/lsp_signature.nvim",
+    "ray-x/lsp_signature.nvim",
     event = "BufRead",
     opts = {
       hint_enable = false,
@@ -292,5 +292,12 @@ return {
     config = {
       tmux_show_only_in_active_window = true,
     },
+  },
+  {
+    "zbirenbaum/copilot.lua",
+    commit = "38a41d0d78f8823cc144c99784528b9a68bdd608",
+    cmd = "Copilot",
+    event = "User AstroFile",
+    opts = { suggestion = { auto_trigger = true, debounce = 150 } },
   },
 }

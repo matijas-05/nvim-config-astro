@@ -43,6 +43,5 @@ return {
   },
   { import = "astrocommunity.pack.cmake" },
 
-  { import = "astrocommunity.completion.copilot-lua" },
   { import = "astrocommunity.lsp.lsp-inlayhints-nvim" },
 }
