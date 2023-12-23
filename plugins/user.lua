@@ -37,6 +37,7 @@ return {
       },
       { "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", desc = "Toggle quickfix menu" },
       { "<leader>xl", "<cmd>TroubleToggle loclist<cr>", desc = "Toggle location list menu" },
+      { "<leader>xt", "<cmd>TroubleToggle todo<cr>", desc = "Toggle todo list" },
     },
     opts = {
       height = 20,
