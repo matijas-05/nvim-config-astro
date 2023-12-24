@@ -19,7 +19,6 @@ return {
         "jsdoc",
       })
       opts.auto_install = true
-      opts.autotag.enable_close_on_slash = false
     end,
   },
 }
