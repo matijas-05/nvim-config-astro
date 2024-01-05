@@ -3,11 +3,15 @@ return {
     "kylechui/nvim-surround",
     version = "*",
     event = "VeryLazy",
-    config = function() require("nvim-surround").setup() end,
+    config = function()
+      require("nvim-surround").setup()
+    end,
   },
   {
     "iamcco/markdown-preview.nvim",
-    build = function() vim.fn["mkdp#util#install"]() end,
+    build = function()
+      vim.fn["mkdp#util#install"]()
+    end,
     ft = "markdown",
     keys = { { "<leader>m", "<cmd>MarkdownPreviewToggle<cr>", desc = "Markdown Preview" } },
     config = function()
@@ -58,7 +62,9 @@ return {
     keys = {
       { "<leader>xt", "<cmd>TodoTrouble<cr>", desc = "Toggle todo-comments list" },
     },
-    config = function() require("todo-comments").setup() end,
+    config = function()
+      require("todo-comments").setup()
+    end,
   },
   {
     "RRethy/vim-illuminate",
@@ -74,12 +80,9 @@ return {
       require("illuminate").configure(opts)
 
       local function map(key, dir, buffer)
-        vim.keymap.set(
-          "n",
-          key,
-          function() require("illuminate")["goto_" .. dir .. "_reference"](false) end,
-          { desc = dir:sub(1, 1):upper() .. dir:sub(2) .. " Reference", buffer = buffer }
-        )
+        vim.keymap.set("n", key, function()
+          require("illuminate")["goto_" .. dir .. "_reference"](false)
+        end, { desc = dir:sub(1, 1):upper() .. dir:sub(2) .. " Reference", buffer = buffer })
       end
 
       map("]]", "next")
@@ -106,7 +109,9 @@ return {
     keys = {
       {
         "<leader>fr",
-        function() require("spectre").open() end,
+        function()
+          require("spectre").open()
+        end,
         desc = "Replace in files (Spectre)",
       },
     },
@@ -115,8 +120,8 @@ return {
     "petertriho/nvim-scrollbar",
     event = "VeryLazy",
     config = function()
-      local colors = require "astrotheme.colors"
-      require("scrollbar").setup {
+      local colors = require("astrotheme.colors")
+      require("scrollbar").setup({
         handle = {
           color = colors.bg_1,
         },
@@ -128,7 +133,7 @@ return {
           Hint = { color = colors.green_1 },
           Misc = { color = colors.purple_1 },
         },
-      }
+      })
     end,
   },
   {
@@ -144,7 +149,9 @@ return {
       { "<M-k>", mode = "v" },
       { "<M-l>", mode = "v" },
     },
-    config = function() require("mini.move").setup() end,
+    config = function()
+      require("mini.move").setup()
+    end,
   },
   {
     "mbbill/undotree",
@@ -165,14 +172,18 @@ return {
       "<s-left>",
       "<s-right>",
     },
-    config = function() vim.g.VM_Mono_hl = "Visual" end,
+    config = function()
+      vim.g.VM_Mono_hl = "Visual"
+    end,
   },
   {
     "nguyenvukhang/nvim-toggler",
     keys = {
       { "<leader>i", desc = "Invert word" },
     },
-    config = function() require("nvim-toggler").setup() end,
+    config = function()
+      require("nvim-toggler").setup()
+    end,
   },
   {
     "wakatime/vim-wakatime",
@@ -185,23 +196,23 @@ return {
       { "<leader>s", desc = "Split/join line" },
     },
     config = function()
-      require("mini.splitjoin").setup {
+      require("mini.splitjoin").setup({
         mappings = {
           toggle = "<leader>s",
         },
-      }
+      })
     end,
   },
   {
     "gbprod/yanky.nvim",
-    dependencies = { { "kkharji/sqlite.lua", enabled = not jit.os:find "Windows" } },
+    dependencies = { { "kkharji/sqlite.lua", enabled = not jit.os:find("Windows") } },
     opts = function()
-      local mapping = require "yanky.telescope.mapping"
+      local mapping = require("yanky.telescope.mapping")
       local mappings = mapping.get_defaults()
       mappings.i["<c-p>"] = nil
       return {
         highlight = { timer = 200 },
-        ring = { storage = jit.os:find "Windows" and "shada" or "sqlite" },
+        ring = { storage = jit.os:find("Windows") and "shada" or "sqlite" },
         picker = {
           telescope = {
             use_default_mappings = false,
@@ -213,7 +224,9 @@ return {
     keys = {
       {
         "<leader>fy",
-        function() require("telescope").extensions.yank_history.yank_history {} end,
+        function()
+          require("telescope").extensions.yank_history.yank_history({})
+        end,
         desc = "Open Yank History",
       },
       { "y", "<Plug>(YankyYank)", mode = { "n", "x" }, desc = "Yank text" },
@@ -272,7 +285,9 @@ return {
     opts = {
       hint_enable = false,
     },
-    config = function(_, opts) require("lsp_signature").setup(opts) end,
+    config = function(_, opts)
+      require("lsp_signature").setup(opts)
+    end,
   },
   {
     "chentoast/marks.nvim",
@@ -285,7 +300,9 @@ return {
   {
     "hiphish/rainbow-delimiters.nvim",
     event = "BufRead",
-    config = function() require("rainbow-delimiters.setup").setup {} end,
+    config = function()
+      require("rainbow-delimiters.setup").setup({})
+    end,
   },
   {
     "3rd/image.nvim",

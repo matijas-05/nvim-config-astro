@@ -11,9 +11,9 @@ return {
     -- ["<leader>bn"] = { ":tabnew<cr>", desc = "New tab" },
     ["<leader>bD"] = {
       function()
-        require("astronvim.utils.status").heirline.buffer_picker(
-          function(bufnr) require("astronvim.utils.buffer").close(bufnr) end
-        )
+        require("astronvim.utils.status").heirline.buffer_picker(function(bufnr)
+          require("astronvim.utils.buffer").close(bufnr)
+        end)
       end,
       desc = "Pick to close",
     },
@@ -36,63 +36,69 @@ return {
     ["<C-Down>"] = false,
     ["<c-s-up>"] = {
       function()
-        if require("astronvim.utils").is_available "smart-splits.nvim" then
+        if require("astronvim.utils").is_available("smart-splits.nvim") then
           require("smart-splits").resize_up()
         else
-          vim.cmd "resize -2"
+          vim.cmd("resize -2")
         end
       end,
       desc = "Resize split up",
     },
     ["<c-s-down>"] = {
       function()
-        if require("astronvim.utils").is_available "smart-splits.nvim" then
+        if require("astronvim.utils").is_available("smart-splits.nvim") then
           require("smart-splits").resize_down()
         else
-          vim.cmd "resize +2"
+          vim.cmd("resize +2")
         end
       end,
       desc = "Resize split down",
     },
     ["<c-s-right>"] = {
       function()
-        if require("astronvim.utils").is_available "smart-splits.nvim" then
+        if require("astronvim.utils").is_available("smart-splits.nvim") then
           require("smart-splits").resize_right()
         else
-          vim.cmd "vertical resize +2"
+          vim.cmd("vertical resize +2")
         end
       end,
       desc = "Resize split right",
     },
     ["<c-s-left>"] = {
       function()
-        if require("astronvim.utils").is_available "smart-splits.nvim" then
+        if require("astronvim.utils").is_available("smart-splits.nvim") then
           require("smart-splits").resize_left()
         else
-          vim.cmd "vertical resize -2"
+          vim.cmd("vertical resize -2")
         end
       end,
       desc = "Resize split left",
     },
     ["<leader>pu"] = {
-      function() require("package-info").change_version() end,
+      function()
+        require("package-info").change_version()
+      end,
       desc = "Update package",
     },
     ["<leader>pd"] = {
-      function() require("package-info").delete() end,
+      function()
+        require("package-info").delete()
+      end,
       desc = "Delete package",
     },
     ["<C-a>"] = { "ggVG" },
     ["H"] = { "_" },
     ["L"] = { "$" },
     ["<leader>tt"] = {
-      function() require("neotest.consumers.summary").toggle() end,
+      function()
+        require("neotest.consumers.summary").toggle()
+      end,
       desc = "Toggle test summary",
     },
     ["<leader>tb"] = {
       function()
         local Terminal = require("toggleterm.terminal").Terminal
-        local btm = Terminal:new { cmd = "btm", hidden = true }
+        local btm = Terminal:new({ cmd = "btm", hidden = true })
         btm:toggle()
       end,
       desc = "ToggleTerm btm",

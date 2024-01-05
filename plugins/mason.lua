@@ -6,7 +6,7 @@ return {
     -- overrides `require("mason-lspconfig").setup(...)`
     opts = function(_, opts)
       -- Don't fix eslint errors on save because it's laggy on larger files
-      vim.api.nvim_del_augroup_by_name "eslint_fix_creator"
+      vim.api.nvim_del_augroup_by_name("eslint_fix_creator")
 
       -- add more things to the ensure_installed table protecting against community packs modifying it
       opts.ensure_installed =
@@ -26,7 +26,7 @@ return {
         end
 
         -- Read the contents of the file
-        local content = file:read "*all"
+        local content = file:read("*all")
         file:close()
 
         -- Parse the JSON content
@@ -48,22 +48,22 @@ return {
 
       local has_prettier = function()
         -- print(vim.inspect(require("null-ls.config").get().root_dir(vim.api.nvim_buf_get_name(0))))
-        return file_exists ".prettierrc"
-          or file_exists ".prettierrc.json"
-          or file_exists ".prettierrc.yml"
-          or file_exists ".prettierrc.yaml"
-          or file_exists ".prettierrc.json5"
-          or file_exists ".prettierrc.js"
-          or file_exists ".prettierrc.cjs"
-          or file_exists "prettier.config.js"
-          or file_exists "prettier.config.cjs"
-          or file_exists ".prettierrc.toml"
+        return file_exists(".prettierrc")
+          or file_exists(".prettierrc.json")
+          or file_exists(".prettierrc.yml")
+          or file_exists(".prettierrc.yaml")
+          or file_exists(".prettierrc.json5")
+          or file_exists(".prettierrc.js")
+          or file_exists(".prettierrc.cjs")
+          or file_exists("prettier.config.js")
+          or file_exists("prettier.config.cjs")
+          or file_exists(".prettierrc.toml")
           or check_json_key_exists(vim.fn.getcwd() .. "/package.json", "prettier")
       end
 
-      local null_ls = require "null-ls"
+      local null_ls = require("null-ls")
       opts.handlers.prettierd = function()
-        null_ls.register(null_ls.builtins.formatting.prettierd.with { condition = has_prettier })
+        null_ls.register(null_ls.builtins.formatting.prettierd.with({ condition = has_prettier }))
       end
 
       -- add more things to the ensure_installed table protecting against community packs modifying it
