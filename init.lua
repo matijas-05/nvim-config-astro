@@ -46,6 +46,7 @@ return {
         "jdtls",
         "jsonls",
         "html",
+        "cssls",
       },
       timeout_ms = 1000, -- default format timeout
     },
