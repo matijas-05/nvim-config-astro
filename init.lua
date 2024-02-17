@@ -124,9 +124,9 @@ return {
 
     -- Set up custom filetypes
     vim.filetype.add({
-      -- extension = {
-      --   foo = "fooscript",
-      -- },
+      extension = {
+        http = "http",
+      },
       -- filename = {
       --   ["Foofile"] = "fooscript",
       -- },
